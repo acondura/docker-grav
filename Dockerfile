@@ -33,7 +33,12 @@ RUN sed -i 's/SYSLOGD_OPTS="-Z"/SYSLOGD_OPTS="-t"/g' /etc/conf.d/syslog
 # AMPHP
 RUN mkdir -p /var/www && \
     cd /var/www && \
-    composer require amphp/http-server amphp/http-server-router amphp/http-server-static-content
+    composer require \
+        amphp/http-server \
+        amphp/http-server-router \
+        amphp/http-server-session \
+        amphp/http-server-static-content \
+        amphp/http-client
 
 # Accept incoming HTTP requests
 EXPOSE 80
